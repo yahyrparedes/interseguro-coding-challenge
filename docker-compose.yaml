@@ -1,0 +1,37 @@
+version: '3.9'
+
+services:
+
+  challenge-go:
+    container_name: challenge-go
+    build:
+      context: challenge-go/
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    environment:
+      - APP_ENV=local
+    networks:
+      - challenge-platform
+
+  challenge-node:
+    container_name: challenge-node
+    build:
+      context: challenge-node/
+      dockerfile: Dockerfile
+    ports:
+      - '3002:3002'
+    environment:
+      - APP_ENV=local
+      - SERVER_NAME=Challenge Go
+      - SERVER_PORT=:8080
+      - SERVER_TIMEOUT=60
+    networks:
+      - challenge-platform
+
+volumes:
+  db_data: { }
+
+networks:
+  challenge-platform:
+    driver: bridge

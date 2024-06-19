@@ -1,0 +1,48 @@
+{
+  "name": "challenge-node",
+  "version": "1.0.0",
+  "description": "Project to challenge node.js",
+  "author": "Yahyr Paredes <yahyrparedesarteaga@gmail.com>",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch --env-file .env.local app",
+    "start": "nodemon app",
+    "build": "babel app.js -d dist",
+    "test": "mocha",
+    "coverage": "nyc npm test",
+    "check-coverage": "nyc check-coverage --lines 90 --branches 90 --functions 90 --statements 90",
+    "lint": "eslint ."
+  },
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "http-status-codes": "^2.3.0",
+    "morgan": "^1.10.0",
+    "save-dev": "^0.0.1-security",
+    "winston": "^3.13.0"
+  },
+  "nyc": {
+    "exclude": [
+      "**/test/**",
+      "**/node_modules/**"
+    ]
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.24.7",
+    "chai": "^5.1.1",
+    "chai-http": "^5.0.0",
+    "eslint": "^9.5.0",
+    "eslint-plugin-jsdoc": "^48.2.12",
+    "mocha": "^10.4.0",
+    "nyc": "^17.0.0",
+    "request": "^2.88.2",
+    "@babel/cli": "7.23.0",
+    "@babel/core": "7.23.2",
+    "@babel/preset-env": "7.23.2"
+  },
+  "private": true
+}

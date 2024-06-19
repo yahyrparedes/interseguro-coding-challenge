@@ -1,0 +1,8 @@
+docs/
+.idea/
+.bin/
+docs
+seed
+config.yml
+
+db_data/
